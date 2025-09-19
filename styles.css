@@ -1,0 +1,259 @@
+/* ===== Palette ===== */
+:root{
+  --blue-1:#07347c;
+  --blue-2:#0a63cf;
+  --blue-3:#10a6f0;
+  --primary:var(--blue-2);
+  --accent:var(--blue-3);
+  --ink:#0a1224;
+  --muted:#536385;
+  --bg:#eaf2ff;
+  --surface:#ffffff;
+  --surface-2:#dfeaff;
+  --line:#d7e4ff;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Be Vietnam Pro',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,"Helvetica Neue",Arial;background:var(--bg);color:var(--ink)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.container{max-width:1180px;margin-inline:auto;padding:20px}
+
+/* Buttons & grids */
+.btn{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--primary);padding:10px 14px;border-radius:12px;line-height:1;font-weight:700;color:var(--blue-1)}
+.btn.primary{background:linear-gradient(135deg,var(--blue-2),var(--blue-3));color:white;border-color:transparent}
+.btn.ghost{background:#fff}
+.btn:hover{transform:translateY(-1px)}
+.grid{display:grid;gap:24px}
+.about4{grid-template-columns:repeat(2,1fr)}
+@media (max-width:700px){.about4{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px}
+
+/* Eyebrow & spacing */
+.eyebrow{letter-spacing:.12em;text-transform:uppercase;color:var(--blue-1);font-weight:700;font-size:.9rem}
+.section{padding:20px 0}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
+header .container{padding-top:10px;padding-bottom:10px}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;color:var(--blue-1)}
+.brand img{height:60px;width:auto}
+nav ul{display:flex;list-style:none;gap:8px;padding:0;margin:0}
+nav a{padding:8px 10px;border-radius:10px;color:var(--blue-1);font-weight:700}
+nav a:hover{background:var(--surface-2)}
+.menu-btn{display:none;appearance:none;border:1px solid var(--line);background:#fff;padding:8px 10px;border-radius:12px;color:var(--blue-1)}
+@media (max-width:780px){.brand img{height:52px}}
+@media (max-width:520px){.brand img{height:46px}}
+@media (max-width:900px){
+  nav{position:fixed;left:16px;right:16px;top:calc(46px + 16px);background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 20px 40px rgba(0,0,0,.06);display:none;padding:10px}
+  nav.open{display:block}
+  nav ul{flex-direction:column}
+  .menu-btn{display:inline-flex}
+}
+
+/* Hero */
+.hero--light{padding:58px 0 42px;background:radial-gradient(650px 240px at 10% -20%, color-mix(in oklab,var(--blue-3) 28%, transparent), transparent 60%),radial-gradient(720px 260px at 100% 0%, color-mix(in oklab,var(--blue-2) 22%, transparent), transparent 60%),linear-gradient(0deg,#fff,#fff)}
+.hero-title-ib{font-size:clamp(2.2rem,3.2vw + 1rem,3.5rem);line-height:1.05;margin:10px 0 8px;font-weight:800;font-style:italic;color:var(--blue-1)}
+.hero-lead{text-align:center;margin-inline:auto;max-width:900px}
+.lead{font-size:clamp(1rem,.5vw + .9rem,1.15rem);color:#2e3a55;max-width:72ch}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;justify-content:center}
+/* === Center everything you asked for === */
+
+/* Hero: “Câu lạc bộ Robotics Trường Đại học FPT” + “Innovate, Build, Inspire.” + đoạn mô tả */
+.hero .container{ text-align:center; }
+.hero .eyebrow{ display:block; text-align:center; }
+.hero-title-ib{ text-align:center; }
+.hero-lead{ text-align:center; margin-left:auto; margin-right:auto; }
+
+/* About: căn giữa toàn bộ văn bản và tiêu đề con (Thành lập, Tầm nhìn, Sứ mệnh, Giá trị cốt lõi) */
+.about .lead{ text-align:center; margin-left:auto; margin-right:auto; }
+.about .card{ text-align:center; }
+.about .card b{ display:block; text-align:center; }
+.about .card p{ text-align:center; }
+
+/* (đã có sẵn) H2 các section đều center rồi, giữ nguyên:
+.section h2{ text-align:center; }
+*/
+
+
+/* About tweaks */
+.section h2{ text-align:center; text-transform:uppercase; letter-spacing:.02em; }
+.about .lead{ text-align:center; margin-inline:auto; max-width:1000px; }
+
+/* Board */
+.tabs{display:flex;gap:8px;margin:0 auto 16px;justify-content:center}
+.tabs button{padding:8px 12px;border:1px solid var(--line);background:#fff;border-radius:10px;font-weight:700;color:var(--blue-1)}
+.tabs button.active{background:linear-gradient(135deg,var(--blue-2),var(--blue-3));color:#fff;border-color:transparent}
+.campus-panel{display:none}
+.campus-panel.active{display:block}
+.board-grid{display:grid;gap:18px;grid-template-columns:repeat(3,1fr);justify-items:center}
+@media (max-width:900px){.board-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.board-grid{grid-template-columns:1fr}}
+.member{display:flex;flex-direction:column;align-items:center;text-align:center}
+.avatar-img{width:150px;height:150px;border-radius:18px;object-fit:cover;border:2px solid color-mix(in oklab,var(--blue-2) 40%, #cde5ff)}
+.avatar-img.big{width:220px;height:220px}
+@media (max-width:600px){.avatar-img.big{width:170px;height:170px}}
+.member-name{margin:.6rem 0 .1rem;font-weight:800;color:var(--blue-1)}
+.member-title{margin:0;color:#3d4b6c}
+
+/* Activities */
+.activities .grid{grid-template-columns:repeat(3,1fr)}
+.icon{width:44px;height:44px;border-radius:12px;background:color-mix(in oklab,var(--blue-2) 16%, #ffffff);display:inline-grid;place-items:center;color:var(--blue-1)}
+.icon svg{width:24px;height:24px}
+.fx{transition:transform .3s ease, box-shadow .3s ease}
+.fx:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(11,116,229,.12)}
+@media (max-width:980px){.activities .grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:680px){.activities .grid{grid-template-columns:1fr}}
+
+/* Partners – static grid / flex center */
+.partners--grid .p-sub{max-width:940px;margin:8px auto 10px;text-align:center;color:#5b6b8b}
+.partners--grid .p-underline{display:block;width:96px;height:4px;margin:12px auto 0;background:var(--accent);border-radius:999px}
+.partners--grid .logo-grid{
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:28px;margin-top:28px;
+}
+.partners--grid .logo-card{
+  width:200px;height:110px;padding:22px;border:1px solid var(--line);border-radius:14px;background:#fff;
+  display:grid;place-items:center;transition:transform .2s ease,box-shadow .2s ease;
+}
+.partners--grid .logo-card img{
+  max-width:100%;max-height:100%;object-fit:contain; /* luôn đủ màu */
+}
+.partners--grid .logo-card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(11,116,229,.08)}
+/* Chỉ 1 logo -> phóng to vừa phải */
+.partners--grid .logo-grid > .logo-card:only-child{width:280px;height:140px;padding:26px}
+@media (max-width:480px){
+  .partners--grid .logo-grid > .logo-card:only-child{width:240px;height:120px;padding:22px}
+}
+
+/* Contact */
+.contact .panel{display:grid;gap:16px}
+.contacts{grid-template-columns:repeat(3,1fr)}
+.contacts>div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 14px 30px rgba(11,116,229,.07);position:relative}
+.contacts>div::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;border-radius:16px 0 0 16px;background:linear-gradient(var(--blue-2),var(--blue-3))}
+.contact-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.ci{width:28px;height:28px;border-radius:8px;display:inline-grid;place-items:center;background:linear-gradient(135deg,var(--blue-2),var(--blue-3));color:#fff;font-size:14px}
+.contacts h3{margin:0;color:var(--blue-1)}
+/* email xanh + đậm */
+.contacts a[href^="mailto:"]{color:var(--primary);font-weight:800}
+@media (max-width:900px){.contacts{grid-template-columns:1fr}}
+
+/* Footer */
+footer{border-top:1px solid var(--line);padding:18px 0;background:#fff}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.f-copy{font-size:.86rem;color:var(--blue-1)}
+.f-copy strong{font-weight:800}
+.f-right{display:flex;align-items:center;gap:12px}
+.f-link{font-weight:700;color:var(--blue-1);font-size:.86rem}
+
+/* Back to top */
+#toTop{position:fixed;right:18px;bottom:18px;width:42px;height:42px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--blue-1);font-weight:800;display:none}
+#toTop.show{display:inline-grid;place-items:center}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(10px);transition:opacity .55s ease, transform .6s ease}
+.reveal.show{opacity:1;transform:none}
+
+/* Small fallback: luôn hiện nếu máy quá cũ */
+@media (max-width:480px){ .reveal{opacity:1;transform:none} }
+
+
+
+/* === Center text for Activities & Contact sections === */
+
+/* Hoạt động (Chúng mình làm gì?) */
+.activities .eyebrow,
+.activities h2,
+.activities .container { text-align: center; }
+
+/* căn card + nội dung bên trong vào giữa */
+.activities .grid { justify-items: center; }
+.activities .card { text-align: center; }
+
+/* Liên hệ (Kết nối cùng FRC) */
+.contact .eyebrow,
+.contact h2,
+.contact .container { text-align: center; }
+
+/* card liên hệ: căn giữa mọi chữ */
+.contacts > div { text-align: center; }
+
+/* tiêu đề đầu mỗi card (icon + tên cơ sở) căn giữa theo trục ngang */
+.contact-head { justify-content: center; }
+
+/* dãy icon facebook/instagram căn giữa */
+.contact-socials { justify-content: center; }
+
+/* email: giữ đậm + xanh như yêu cầu trước */
+.contacts a[href^="mailto"]{
+  font-weight: 800;
+  color: var(--blue-2);
+}
+
+
+
+/* ==== Section subtitle + underline (dùng chung cho mọi mục) ==== */
+.section .sec-sub,
+.partners--grid .p-sub{
+  max-width: 960px;
+  margin: 8px auto 12px;
+  text-align: center;
+  color: #5b6b8b;
+  font-size: clamp(1rem, .2vw + 1rem, 1.125rem);
+}
+
+.section .sec-underline,
+.partners--grid .p-underline{
+  display: block;
+  width: 110px;
+  height: 5px;
+  margin: 10px auto 0;
+  border-radius: 999px;
+  background: var(--accent);
+  opacity: .9;
+}
+
+
+/* ===== Nới khoảng cách giữa tiêu đề / mô tả / gạch chân và phần nội dung ===== */
+.section h2{
+  margin: 0 0 8px;              /* tiêu đề cách trên dưới gọn gàng */
+  text-align: center;
+}
+
+/* mô tả ngắn dưới tiêu đề */
+.section .sec-sub{
+  max-width: 960px;
+  margin: 10px auto 14px;       /* thêm khoảng cách dưới mô tả */
+  text-align: center;
+  line-height: 1.55;
+  color: #5b6b8b;
+}
+
+/* gạch chân dưới tiêu đề */
+.section .sec-underline{
+  display: block;
+  width: 110px;
+  height: 5px;
+  margin: 12px auto 28px;       /* <— tăng khoảng cách dưới để không bị sát nội dung */
+  border-radius: 999px;
+  background: var(--accent);
+  opacity: .9;
+}
+
+/* đồng bộ cho mục Đối tác (partners--grid) */
+.partners--grid .p-sub{
+  max-width: 960px;
+  margin: 10px auto 14px;
+  text-align: center;
+  line-height: 1.55;
+  color: #5b6b8b;
+}
+.partners--grid .p-underline{
+  display: block;
+  width: 110px;
+  height: 5px;
+  margin: 12px auto 28px;       /* <— tăng khoảng cách dưới */
+  border-radius: 999px;
+  background: var(--accent);
+  opacity: .9;
+}
