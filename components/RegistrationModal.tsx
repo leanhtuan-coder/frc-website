@@ -25,7 +25,7 @@ const ModalUI = ({ onClose }: { onClose: () => void }) => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate API call
     setTimeout(() => {
       setIsSubmitting(false);
@@ -41,8 +41,8 @@ const ModalUI = ({ onClose }: { onClose: () => void }) => {
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
       {/* Backdrop */}
-      <div 
-        className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" 
+      <div
+        className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
         onClick={onClose}
       ></div>
 
@@ -54,7 +54,7 @@ const ModalUI = ({ onClose }: { onClose: () => void }) => {
             <span className="material-symbols-outlined text-primary">app_registration</span>
             Đăng ký tham gia
           </h3>
-          <button 
+          <button
             onClick={onClose}
             className="size-8 rounded-full flex items-center justify-center text-text-secondary hover:bg-surface-border hover:text-text-main transition-colors"
           >
@@ -78,9 +78,9 @@ const ModalUI = ({ onClose }: { onClose: () => void }) => {
                 <label htmlFor="name" className="text-sm font-bold text-text-main">Họ và tên</label>
                 <div className="relative">
                   <span className="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted material-symbols-outlined text-[20px]">person</span>
-                  <input 
-                    type="text" 
-                    id="name" 
+                  <input
+                    type="text"
+                    id="name"
                     required
                     placeholder="Nguyễn Văn A"
                     className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-surface-border bg-background focus:bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-text-muted/70 text-text-main"
@@ -92,9 +92,9 @@ const ModalUI = ({ onClose }: { onClose: () => void }) => {
                 <label htmlFor="email" className="text-sm font-bold text-text-main">Email liên hệ</label>
                 <div className="relative">
                   <span className="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted material-symbols-outlined text-[20px]">mail</span>
-                  <input 
-                    type="email" 
-                    id="email" 
+                  <input
+                    type="email"
+                    id="email"
                     required
                     placeholder="name@example.com"
                     className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-surface-border bg-background focus:bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-text-muted/70 text-text-main"
@@ -106,7 +106,7 @@ const ModalUI = ({ onClose }: { onClose: () => void }) => {
                 <label htmlFor="interest" className="text-sm font-bold text-text-main">Lĩnh vực quan tâm</label>
                 <div className="relative">
                   <span className="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted material-symbols-outlined text-[20px]">category</span>
-                  <select 
+                  <select
                     id="interest"
                     className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-surface-border bg-background focus:bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-text-main appearance-none cursor-pointer"
                   >
@@ -122,8 +122,8 @@ const ModalUI = ({ onClose }: { onClose: () => void }) => {
 
               <div className="flex flex-col gap-1.5">
                 <label htmlFor="message" className="text-sm font-bold text-text-main">Lời nhắn (Tùy chọn)</label>
-                <textarea 
-                  id="message" 
+                <textarea
+                  id="message"
                   rows={3}
                   placeholder="Chia sẻ thêm về bản thân bạn..."
                   className="w-full px-4 py-2.5 rounded-lg border border-surface-border bg-background focus:bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-text-muted/70 text-text-main resize-none"
@@ -136,16 +136,16 @@ const ModalUI = ({ onClose }: { onClose: () => void }) => {
         {/* Footer */}
         {!isSuccess && (
           <div className="px-6 py-4 bg-background border-t border-surface-border flex justify-end gap-3">
-            <button 
-              type="button" 
+            <button
+              type="button"
               onClick={onClose}
               disabled={isSubmitting}
               className="px-5 py-2.5 rounded-lg font-bold text-text-secondary hover:bg-surface-border hover:text-text-main transition-colors disabled:opacity-50"
             >
               Hủy bỏ
             </button>
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               form="registration-form"
               disabled={isSubmitting}
               className="px-6 py-2.5 rounded-lg bg-primary text-white font-bold hover:bg-primary-dark transition-colors shadow-lg shadow-primary/20 disabled:opacity-70 disabled:cursor-not-allowed flex items-center gap-2"

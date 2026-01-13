@@ -130,7 +130,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({ onBack }) =>
                         <div className="flex justify-center mb-6">
                             <CheckCircle2 className="h-20 w-20 text-green-500" />
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
                             Đăng ký thành công!
                         </h2>
                         <p className="text-lg text-gray-700 mb-6">
@@ -145,8 +145,8 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({ onBack }) =>
                                 <strong>Đơn đăng ký của bạn đã được gửi thành công!</strong>
                             </p>
                             <p className="text-sm text-gray-600">
-                                Chúng tôi đã gửi email xác nhận đến địa chỉ email của bạn. Ban tổ chức sẽ liên hệ với bạn trong thời gian sớm nhất.
-                                Vui lòng kiểm tra email và giữ mã đăng ký này để tra cứu sau.
+                                Chúng mình đã nhận được đơn đăng ký của bạn và sẽ liên hệ với bạn trong thời gian sớm nhất.
+                                Vui lòng kiểm tra email và giữ mã đăng ký này.
                             </p>
                         </div>
                         <Link
