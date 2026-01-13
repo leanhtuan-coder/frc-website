@@ -78,17 +78,17 @@ export const RecruitmentLanding: React.FC<RecruitmentLandingProps> = ({ onScroll
             </section>
 
             {/* CTA Section */}
-            <section className="bg-white py-0">
+            <section className="bg-white py-4 md:py-2 pb-8 md:pb-6">
                 <div className="max-w-[800px] mx-auto px-4 text-center">
-                    <p className="text-sm md:text-base text-gray-500 mb-4 font-medium uppercase tracking-widest">
+                    <p className="text-xs md:text-sm text-gray-500 mb-3 md:mb-4 font-medium uppercase tracking-widest">
                         Sẵn sàng để bắt đầu hành trình mới cùng FRC
                     </p>
                     <button
                         onClick={onScrollToForm}
-                        className="inline-flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-lg font-bold hover:bg-primary-dark transition-all shadow-lg active:scale-95"
+                        className="inline-flex items-center gap-2 bg-primary text-white px-6 md:px-8 py-3 rounded-lg font-bold hover:bg-primary-dark transition-all shadow-lg active:scale-95 text-sm md:text-base"
                     >
                         Điền đơn đăng ký
-                        <ArrowDown className="w-5 h-5" />
+                        <ArrowDown className="w-4 h-4 md:w-5 md:h-5" />
                     </button>
                 </div>
             </section>
