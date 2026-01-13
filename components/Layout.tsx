@@ -7,7 +7,7 @@ const Header = () => {
       <div className="max-w-[1200px] mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 md:gap-3">
           <img
-            src="/assets/logo.png"
+            src="./assets/logo.png"
             alt="FPTU Robotics Club Logo"
             className="h-8 md:h-10 w-auto"
           />
@@ -35,7 +35,7 @@ const Footer = () => {
         <div className="col-span-1 md:col-span-2 flex flex-col gap-4">
           <div className="flex items-center gap-3 mb-2">
             <img
-              src="/assets/logo.png"
+              src="./assets/logo.png"
               alt="FPTU Robotics Club Logo"
               className="h-8 w-auto"
             />
