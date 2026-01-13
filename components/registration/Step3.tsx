@@ -22,11 +22,11 @@ export const Step3: React.FC<Step3Props> = ({ form }) => {
                         </div>
 
                         <div>
-                            <Label htmlFor="techExperience">Kinh nghiệm về robotics/lập trình</Label>
+                            <Label htmlFor="techExperience">Kinh nghiệm về robotics/lập trình *</Label>
                             <textarea
                                 id="techExperience"
                                 {...register('techExperience')}
-                                placeholder="Mô tả kinh nghiệm của bạn (nếu có)"
+                                placeholder="Mô tả chi tiết kinh nghiệm của bạn"
                                 rows={4}
                                 className="w-full rounded-lg border border-surface-border bg-white px-4 py-3 text-text-main focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-text-muted shadow-sm resize-none"
                             />
@@ -34,7 +34,7 @@ export const Step3: React.FC<Step3Props> = ({ form }) => {
                         </div>
 
                         <div>
-                            <Label htmlFor="techSkills">Kỹ năng kỹ thuật</Label>
+                            <Label htmlFor="techSkills">Kỹ năng kỹ thuật *</Label>
                             <textarea
                                 id="techSkills"
                                 {...register('techSkills')}
@@ -46,11 +46,11 @@ export const Step3: React.FC<Step3Props> = ({ form }) => {
                         </div>
 
                         <div>
-                            <Label htmlFor="techProjects">Dự án đã thực hiện</Label>
+                            <Label htmlFor="techProjects">Dự án đã thực hiện *</Label>
                             <textarea
                                 id="techProjects"
                                 {...register('techProjects')}
-                                placeholder="Mô tả các dự án robotics/kỹ thuật bạn đã làm"
+                                placeholder="Mô tả các dự án robotics/kỹ thuật bạn đã tham gia hoặc tự thực hiện"
                                 rows={4}
                                 className="w-full rounded-lg border border-surface-border bg-white px-4 py-3 text-text-main focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-text-muted shadow-sm resize-none"
                             />
@@ -58,7 +58,7 @@ export const Step3: React.FC<Step3Props> = ({ form }) => {
                         </div>
 
                         <div>
-                            <Label htmlFor="techExpectations">Mong muốn phát triển kỹ năng gì?</Label>
+                            <Label htmlFor="techExpectations">Mong muốn phát triển kỹ năng gì? *</Label>
                             <textarea
                                 id="techExpectations"
                                 {...register('techExpectations')}
@@ -80,11 +80,11 @@ export const Step3: React.FC<Step3Props> = ({ form }) => {
                         </div>
 
                         <div>
-                            <Label htmlFor="commExperience">Kinh nghiệm truyền thông/marketing</Label>
+                            <Label htmlFor="commExperience">Kinh nghiệm truyền thông/marketing *</Label>
                             <textarea
                                 id="commExperience"
                                 {...register('commExperience')}
-                                placeholder="Mô tả kinh nghiệm của bạn (nếu có)"
+                                placeholder="Mô tả chi tiết kinh nghiệm của bạn"
                                 rows={4}
                                 className="w-full rounded-lg border border-surface-border bg-white px-4 py-3 text-text-main focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-text-muted shadow-sm resize-none"
                             />
@@ -92,7 +92,7 @@ export const Step3: React.FC<Step3Props> = ({ form }) => {
                         </div>
 
                         <div>
-                            <Label htmlFor="commSkills">Kỹ năng sáng tạo nội dung</Label>
+                            <Label htmlFor="commSkills">Kỹ năng sáng tạo nội dung *</Label>
                             <textarea
                                 id="commSkills"
                                 {...register('commSkills')}
@@ -104,7 +104,7 @@ export const Step3: React.FC<Step3Props> = ({ form }) => {
                         </div>
 
                         <div>
-                            <Label htmlFor="commPortfolio">Portfolio/Link mẫu công việc</Label>
+                            <Label htmlFor="commPortfolio">Portfolio/Link mẫu công việc *</Label>
                             <textarea
                                 id="commPortfolio"
                                 {...register('commPortfolio')}
@@ -116,7 +116,7 @@ export const Step3: React.FC<Step3Props> = ({ form }) => {
                         </div>
 
                         <div>
-                            <Label htmlFor="commExpectations">Mong muốn phát triển kỹ năng gì?</Label>
+                            <Label htmlFor="commExpectations">Mong muốn phát triển kỹ năng gì? *</Label>
                             <textarea
                                 id="commExpectations"
                                 {...register('commExpectations')}
@@ -138,11 +138,11 @@ export const Step3: React.FC<Step3Props> = ({ form }) => {
                         </div>
 
                         <div>
-                            <Label htmlFor="financeExperience">Kinh nghiệm tài chính/đối ngoại</Label>
+                            <Label htmlFor="financeExperience">Kinh nghiệm tài chính/đối ngoại *</Label>
                             <textarea
                                 id="financeExperience"
                                 {...register('financeExperience')}
-                                placeholder="Mô tả kinh nghiệm của bạn (nếu có)"
+                                placeholder="Mô tả chi tiết kinh nghiệm của bạn"
                                 rows={4}
                                 className="w-full rounded-lg border border-surface-border bg-white px-4 py-3 text-text-main focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-text-muted shadow-sm resize-none"
                             />
@@ -150,7 +150,7 @@ export const Step3: React.FC<Step3Props> = ({ form }) => {
                         </div>
 
                         <div>
-                            <Label htmlFor="financeSkills">Kỹ năng liên quan</Label>
+                            <Label htmlFor="financeSkills">Kỹ năng liên quan *</Label>
                             <textarea
                                 id="financeSkills"
                                 {...register('financeSkills')}
@@ -162,7 +162,7 @@ export const Step3: React.FC<Step3Props> = ({ form }) => {
                         </div>
 
                         <div>
-                            <Label htmlFor="financeExpectations">Mong muốn phát triển kỹ năng gì?</Label>
+                            <Label htmlFor="financeExpectations">Mong muốn phát triển kỹ năng gì? *</Label>
                             <textarea
                                 id="financeExpectations"
                                 {...register('financeExpectations')}
@@ -184,11 +184,11 @@ export const Step3: React.FC<Step3Props> = ({ form }) => {
                         </div>
 
                         <div>
-                            <Label htmlFor="eventExperience">Kinh nghiệm tổ chức sự kiện</Label>
+                            <Label htmlFor="eventExperience">Kinh nghiệm tổ chức sự kiện *</Label>
                             <textarea
                                 id="eventExperience"
                                 {...register('eventExperience')}
-                                placeholder="Mô tả kinh nghiệm của bạn (nếu có)"
+                                placeholder="Mô tả chi tiết kinh nghiệm của bạn"
                                 rows={4}
                                 className="w-full rounded-lg border border-surface-border bg-white px-4 py-3 text-text-main focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-text-muted shadow-sm resize-none"
                             />
@@ -196,7 +196,7 @@ export const Step3: React.FC<Step3Props> = ({ form }) => {
                         </div>
 
                         <div>
-                            <Label htmlFor="eventSkills">Kỹ năng liên quan</Label>
+                            <Label htmlFor="eventSkills">Kỹ năng liên quan *</Label>
                             <textarea
                                 id="eventSkills"
                                 {...register('eventSkills')}
@@ -208,7 +208,7 @@ export const Step3: React.FC<Step3Props> = ({ form }) => {
                         </div>
 
                         <div>
-                            <Label htmlFor="eventExpectations">Mong muốn phát triển kỹ năng gì?</Label>
+                            <Label htmlFor="eventExpectations">Mong muốn phát triển kỹ năng gì? *</Label>
                             <textarea
                                 id="eventExpectations"
                                 {...register('eventExpectations')}

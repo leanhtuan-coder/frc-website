@@ -1,4 +1,5 @@
 import React from 'react';
+import { ChevronDown } from 'lucide-react';
 
 export interface SelectOption {
     value: string;
@@ -34,6 +35,11 @@ export const SelectField = React.forwardRef<HTMLSelectElement, SelectFieldProps>
                     id={id}
                     className={`appearance-none w-full rounded-lg border border-surface-border bg-white ${iconName ? 'pl-11' : 'pl-4'} pr-10 py-3 text-text-main focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all shadow-sm cursor-pointer invalid:text-text-muted ${error ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''
                         }`}
+                    style={{
+                        WebkitAppearance: 'none',
+                        MozAppearance: 'none',
+                        backgroundImage: 'none'
+                    }}
                     {...props}
                 >
                     <option disabled value="">
@@ -45,9 +51,7 @@ export const SelectField = React.forwardRef<HTMLSelectElement, SelectFieldProps>
                         </option>
                     ))}
                 </select>
-                <span className="absolute right-4 top-1/2 -translate-y-1/2 text-text-muted pointer-events-none material-symbols-outlined text-[20px]">
-                    expand_more
-                </span>
+                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-text-muted pointer-events-none w-5 h-5" />
             </div>
             {error && <p className="mt-1 text-xs text-red-500">{error}</p>}
         </div>
@@ -55,3 +59,4 @@ export const SelectField = React.forwardRef<HTMLSelectElement, SelectFieldProps>
 });
 
 SelectField.displayName = 'SelectField';
+

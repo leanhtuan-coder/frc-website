@@ -44,7 +44,7 @@ export const registrationFormSchema = z.object({
     preferredDepartment1: z.string().min(1, 'Vui lòng chọn ban mong muốn 1'),
     preferredDepartment2: z.string().optional(),
 
-    // Step 3: Câu hỏi theo ban (conditional)
+    // Step 3: Câu hỏi theo ban (conditional - optional vì chỉ validate theo ban đã chọn)
     // Ban Chuyên môn
     techExperience: z.string().max(2000, 'Mô tả quá dài').optional(),
     techSkills: z.string().max(2000, 'Mô tả quá dài').optional(),

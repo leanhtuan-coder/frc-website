@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import React, { useState, useEffect } from 'react';
+import { useForm, useWatch } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
@@ -10,22 +10,50 @@ import { Step2 } from './Step2';
 import { Step3 } from './Step3';
 import { Step4 } from './Step4';
 
-export const RegistrationForm: React.FC = () => {
+const STORAGE_KEY = 'frc_registration_data';
+
+interface RegistrationFormProps {
+    onBack?: () => void;
+}
+
+export const RegistrationForm: React.FC<RegistrationFormProps> = ({ onBack }) => {
     const [currentStep, setCurrentStep] = useState(1);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
     const [refCode, setRefCode] = useState('');
 
-    const form = useForm<RegistrationFormData>({
-        resolver: zodResolver(registrationFormSchema),
-        mode: 'onBlur',
-        defaultValues: {
+    // Load saved data from localStorage if available
+    const getSavedData = (): Partial<RegistrationFormData> => {
+        try {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (saved) {
+                return JSON.parse(saved);
+            }
+        } catch (e) {
+            console.error('Error loading saved form data:', e);
+        }
+        return {
             consentTruth: false,
             consentRules: false,
             consentData: false,
             commitmentLevel: 3,
-        },
+        };
+    };
+
+    const form = useForm<RegistrationFormData>({
+        resolver: zodResolver(registrationFormSchema),
+        mode: 'onBlur',
+        defaultValues: getSavedData(),
     });
+
+    const formData = useWatch({ control: form.control });
+
+    // Auto-save form data to localStorage on change
+    useEffect(() => {
+        if (!isSuccess) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
+        }
+    }, [formData, isSuccess]);
 
     // Define which fields to validate for each step
     const stepValidationFields: Record<number, (keyof RegistrationFormData)[]> = {
@@ -78,6 +106,10 @@ export const RegistrationForm: React.FC = () => {
             const refCode = `FRC${Date.now().toString().slice(-8)}`;
 
             console.log('Form submitted successfully!');
+
+            // Clear saved data on success
+            localStorage.removeItem(STORAGE_KEY);
+
             setRefCode(refCode);
             setIsSuccess(true);
 
@@ -92,7 +124,7 @@ export const RegistrationForm: React.FC = () => {
     // Success screen
     if (isSuccess) {
         return (
-            <section className="w-full max-w-[1200px] px-4 md:px-6 py-12">
+            <section className="w-full max-w-[800px] px-4 md:px-6 py-12">
                 <div className="bg-surface rounded-xl border border-surface-border shadow-sm p-6 md:p-10">
                     <div className="text-center">
                         <div className="flex justify-center mb-6">
@@ -119,6 +151,7 @@ export const RegistrationForm: React.FC = () => {
                         </div>
                         <Link
                             to="/"
+                            onClick={() => window.location.reload()}
                             className="inline-block px-8 py-3 rounded-full bg-primary text-white font-bold hover:bg-primary-dark shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all"
                         >
                             Về trang chủ
@@ -131,8 +164,18 @@ export const RegistrationForm: React.FC = () => {
 
     // Main form
     return (
-        <section className="w-full max-w-[1200px] px-4 md:px-6 py-12">
-
+        <section className="w-full max-w-[1200px] px-4 md:px-6 py-8 md:py-12">
+            {onBack && (
+                <div className="px-1 mb-4">
+                    <button
+                        onClick={onBack}
+                        className="flex items-center gap-2 text-text-secondary hover:text-primary transition-colors font-medium group"
+                    >
+                        <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
+                        Quay lại thông tin
+                    </button>
+                </div>
+            )}
 
             <div className="bg-surface rounded-xl border border-surface-border shadow-sm p-4 md:p-6 lg:p-10">
                 <div className="text-center mb-6 md:mb-8 border-b border-surface-border pb-4 md:pb-6">
@@ -148,7 +191,7 @@ export const RegistrationForm: React.FC = () => {
 
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                     {/* Step content with slide animation */}
-                    <div className="overflow-hidden">
+                    <div className="overflow-hidden px-1">
                         {currentStep === 1 && (
                             <div className="animate-in slide-in-from-right-5 fade-in duration-500">
                                 <h2 className="text-xl md:text-2xl font-bold text-center mb-4 md:mb-6 text-gray-900">

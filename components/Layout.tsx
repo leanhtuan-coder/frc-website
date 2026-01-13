@@ -72,9 +72,11 @@ const Footer = () => {
       <div className="w-full border-t border-surface-border bg-background py-6 text-center">
         <p className="text-text-secondary text-xs">© 2026 FPTU Robotics Club. All rights reserved.</p>
       </div>
-    </footer>
+    </footer >
   );
 };
+
+import { FloatingSocialButtons } from './FloatingSocialButtons';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -84,6 +86,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         {children}
       </main>
       <Footer />
+      <FloatingSocialButtons />
     </>
   );
 };

@@ -26,7 +26,6 @@ Phối hợp với ban Sự kiện để truyền thông cho các chương trìn
         criteria: `Tìm kiếm các bạn sáng tạo, năng động và có khả năng xây dựng nội dung thu hút. Yêu thích viết lách, kể chuyện trên mạng xã hội; có khiếu thẩm mỹ về hình ảnh/design (biết dùng Canva, Photoshop là điểm cộng lớn). Nếu bạn có kỹ năng quay dựng video, chụp ảnh sự kiện thì rất tuyệt.
 
 Quan trọng là tinh thần ham học hỏi xu hướng mới (vd: trend TikTok) và trách nhiệm với công việc truyền thông được giao, vì hình ảnh CLB phụ thuộc nhiều vào ban này.`,
-        slots: '6–8 thành viên',
         benefits: 'Thỏa sức thể hiện sự sáng tạo và trau dồi kỹ năng truyền thông thực tế – từ viết content, design đến quản lý fanpage. Bạn sẽ mở rộng được mối quan hệ với nhiều bạn trẻ tài năng trong và ngoài CLB.',
         icon: 'campaign',
         color: 'purple'
@@ -40,7 +39,6 @@ Trong mỗi sự kiện, ban phụ trách từ khâu logistics (đặt phòng, t
         criteria: `Ưu tiên những bạn nhiệt tình, tỉ mỉ và có kỹ năng tổ chức. Bạn nào từng tham gia tổ chức sự kiện (ở cấp lớp, khoa…) sẽ có lợi thế, nhưng nếu chưa có chỉ cần đam mê và tinh thần học hỏi cũng rất hoan nghênh.
 
 Sự sáng tạo cũng rất quan trọng để nghĩ ra những hoạt động thú vị cho CLB. Ngoài ra, ban này cần người có kỹ năng kết nối – biết lắng nghe, động viên và tạo bầu không khí thân thiện giữa các thành viên.`,
-        slots: '5–6 thành viên',
         benefits: `Bạn sẽ phát triển mạnh các kỹ năng tổ chức sự kiện, quản lý thời gian, lãnh đạo nhóm. Trải nghiệm việc lên kế hoạch từ đầu đến cuối cho một chương trình thực tế sẽ giúp bạn trưởng thành hơn rất nhiều.
 
 Bên cạnh đó, việc chăm lo gắn kết tập thể sẽ cho bạn những người bạn thân thiết như một gia đình thứ hai trong CLB.`,
@@ -60,7 +58,6 @@ Khi CLB có sự kiện, ban Đối ngoại lo khâu xin tài trợ & mời khá
         criteria: `Ưu tiên các bạn có kỹ năng giao tiếp và đàm phán tốt. Sự tự tin, linh hoạt trong ứng xử với người lạ (nhất là người có chức vụ, nhà tài trợ) là một lợi thế lớn.
 
 Yêu cầu khả năng viết lách cơ bản để soạn thảo email, công văn, proposal chuyên nghiệp. Ngoài ra, cần sự cẩn thận và trung thực tuyệt đối trong quản lý tài chính.`,
-        slots: '5–6 thành viên',
         benefits: `Bạn sẽ học được cách làm việc chuyên nghiệp với các đối tác, rèn luyện kỹ năng thương thuyết, ngoại giao trong môi trường an toàn. Việc quản lý tài chính CLB giúp bạn hiểu thêm về ngân sách, sổ sách – những kiến thức thực tiễn hiếm khi có trong sách vở.
 
 Các mối quan hệ bên ngoài mà bạn xây dựng được có thể mở ra nhiều cơ hội nghề nghiệp cho bạn sau này.`,
@@ -86,7 +83,6 @@ const DepartmentCard = ({ dept }: { dept: typeof DEPARTMENTS[0] }) => {
                 </div>
                 <div>
                     <h3 className="text-xl font-bold text-gray-900">{dept.name}</h3>
-                    <span className="text-sm font-medium text-gray-600">{dept.slots}</span>
                 </div>
             </div>
 
@@ -132,7 +128,7 @@ const DepartmentsPage = () => {
         <section className="w-full max-w-[900px] px-4 md:px-6 py-12">
             <div className="text-center mb-10">
                 <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-                    Các Ban của CLB
+                    CÁC BAN CỦA CLB
                 </h1>
                 <p className="text-gray-600 max-w-2xl mx-auto">
                     Tìm hiểu về chức năng, hoạt động và tiêu chí tuyển chọn của từng ban để chọn vị trí phù hợp nhất với bạn.

@@ -52,7 +52,7 @@ export function MultiStepForm({ onSuccess }: MultiStepFormProps = {}) {
           setIsLoadingConfig(false)
         }
       })
-    
+
     return () => {
       isMounted = false
     }
@@ -112,7 +112,7 @@ export function MultiStepForm({ onSuccess }: MultiStepFormProps = {}) {
 
   const nextStep = useCallback(async () => {
     const fieldsToValidate = stepValidationFields[currentStep as keyof typeof stepValidationFields]
-    
+
     let isValid = true
     if (fieldsToValidate.length > 0) {
       isValid = await form.trigger(fieldsToValidate)
@@ -188,7 +188,7 @@ export function MultiStepForm({ onSuccess }: MultiStepFormProps = {}) {
       }
 
       console.log("📤 Submitting form...")
-      
+
       const controller = new AbortController()
       const timeoutId = setTimeout(() => controller.abort(), 30000)
 
@@ -236,7 +236,7 @@ export function MultiStepForm({ onSuccess }: MultiStepFormProps = {}) {
       }
 
       console.log("✅ Registration successful, refCode:", result.refCode)
-      
+
       setRefCode(result.refCode)
       setIsSuccess(true)
       setIsSubmitting(false)
@@ -288,7 +288,7 @@ export function MultiStepForm({ onSuccess }: MultiStepFormProps = {}) {
               <strong>Đơn đăng ký của bạn đã được gửi thành công!</strong>
             </p>
             <p className="text-sm text-gray-600">
-              Chúng tôi đã gửi email xác nhận đến địa chỉ email của bạn. Ban tổ chức sẽ liên hệ với bạn trong thời gian sớm nhất. Vui lòng kiểm tra email và giữ mã đăng ký này để tra cứu sau.
+              Chúng mình đã nhận được đơn đăng ký của bạn sẽ liên hệ với bạn trong thời gian sớm nhất. Vui lòng kiểm tra email và giữ mã đăng ký này.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
