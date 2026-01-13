@@ -29,6 +29,7 @@ export const Step1: React.FC<Step1Props> = ({ form }) => {
                 <Label htmlFor="fullName">01. Họ và Tên *</Label>
                 <InputField
                     id="fullName"
+                    iconName="person"
                     {...register('fullName')}
                     placeholder="Ví dụ: Nguyễn Văn A"
                     error={errors.fullName?.message}
@@ -41,6 +42,7 @@ export const Step1: React.FC<Step1Props> = ({ form }) => {
                 <InputField
                     id="email"
                     type="email"
+                    iconName="mail"
                     {...register('email')}
                     placeholder="example@email.com"
                     error={errors.email?.message}
@@ -78,6 +80,7 @@ export const Step1: React.FC<Step1Props> = ({ form }) => {
                 <Label htmlFor="phone">04. Số điện thoại *</Label>
                 <InputField
                     id="phone"
+                    iconName="call"
                     {...register('phone')}
                     placeholder="Định dạng: 0xxx xxx xxx"
                     error={errors.phone?.message}
@@ -89,6 +92,7 @@ export const Step1: React.FC<Step1Props> = ({ form }) => {
                 <Label htmlFor="facebook">05. Facebook cá nhân</Label>
                 <InputField
                     id="facebook"
+                    iconName="link"
                     {...register('facebook')}
                     placeholder="Example: https://www.facebook.com/username"
                     error={errors.facebook?.message}
@@ -133,6 +137,7 @@ export const Step1: React.FC<Step1Props> = ({ form }) => {
                 <Label htmlFor="studentIdMajor">07. Mã số sinh viên - Chuyên ngành *</Label>
                 <InputField
                     id="studentIdMajor"
+                    iconName="school"
                     {...register('studentIdMajor')}
                     placeholder="Nhập mã số sinh viên và chuyên ngành"
                     error={errors.studentIdMajor?.message}

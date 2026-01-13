@@ -1,46 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   return (
     <header className="sticky top-0 z-50 w-full border-b border-surface-border bg-surface/90 backdrop-blur-md">
-      <div className="max-w-[1200px] mx-auto px-6 h-18 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3">
+      <div className="max-w-[1200px] mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
+        <Link to="/" className="flex items-center gap-2 md:gap-3">
           <img
             src="/assets/logo.png"
             alt="FPTU Robotics Club Logo"
-            className="h-10 w-auto"
+            className="h-8 md:h-10 w-auto"
           />
-          <h2 className="text-primary text-lg font-bold tracking-tight">FPTU Robotics Club</h2>
+          <h2 className="text-primary text-base md:text-lg font-bold tracking-tight">FPTU Robotics Club</h2>
         </Link>
-        <nav className="hidden md:flex flex-1 justify-center gap-8">
-          <Link to="/" className="text-text-main text-sm font-semibold hover:text-primary transition-colors">Trang chủ</Link>
-          <Link to="/#about" className="text-text-secondary text-sm font-medium hover:text-primary transition-colors">Giới thiệu</Link>
-          <Link to="/#board" className="text-text-secondary text-sm font-medium hover:text-primary transition-colors">Ban chủ nhiệm</Link>
-          <Link to="/#activities" className="text-text-secondary text-sm font-medium hover:text-primary transition-colors">Hoạt động</Link>
-          <Link to="/#achievements" className="text-text-secondary text-sm font-medium hover:text-primary transition-colors">Thành tích</Link>
-          <Link to="/#contact" className="text-text-secondary text-sm font-medium hover:text-primary transition-colors">Liên hệ</Link>
+        <nav className="flex items-center">
+          <Link
+            to="/departments"
+            className="text-text-secondary text-xs md:text-sm font-medium hover:text-primary transition-colors flex items-center gap-1 px-3 py-2 rounded-full hover:bg-surface-border/30"
+          >
+            <span className="material-symbols-outlined text-[16px] md:text-[18px]">groups</span>
+            <span className="hidden sm:inline">Mô tả và tiêu chí của các ban</span>
+            <span className="sm:hidden">Các ban</span>
+          </Link>
         </nav>
-        <button
-          className="md:hidden text-text-main"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          <span className="material-symbols-outlined">menu</span>
-        </button>
       </div>
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden absolute top-18 left-0 w-full bg-surface border-b border-surface-border p-4 shadow-lg flex flex-col gap-4">
-          <Link to="/" className="text-text-main font-semibold" onClick={() => setIsMenuOpen(false)}>Trang chủ</Link>
-          <Link to="/#about" className="text-text-secondary font-medium" onClick={() => setIsMenuOpen(false)}>Giới thiệu</Link>
-          <Link to="/#board" className="text-text-secondary font-medium" onClick={() => setIsMenuOpen(false)}>Ban chủ nhiệm</Link>
-          <Link to="/#activities" className="text-text-secondary font-medium" onClick={() => setIsMenuOpen(false)}>Hoạt động</Link>
-          <Link to="/#achievements" className="text-text-secondary font-medium" onClick={() => setIsMenuOpen(false)}>Thành tích</Link>
-          <Link to="/#contact" className="text-text-secondary font-medium" onClick={() => setIsMenuOpen(false)}>Liên hệ</Link>
-        </div>
-      )}
     </header>
   );
 };
@@ -80,7 +63,7 @@ const Footer = () => {
           <h4 className="text-text-main font-bold mb-4">Liên kết</h4>
           <ul className="flex flex-col gap-2">
             <li><Link to="/" className="text-text-secondary text-sm hover:text-primary transition-colors">Trang chủ</Link></li>
-            <li><Link to="/#about" className="text-text-secondary text-sm hover:text-primary transition-colors">Về chúng tôi</Link></li>
+            <li><Link to="/home#about" className="text-text-secondary text-sm hover:text-primary transition-colors">Về chúng tôi</Link></li>
             <li><Link to="/registration" className="text-text-secondary text-sm hover:text-primary transition-colors">Tuyển thành viên</Link></li>
             <li><Link to="/terms-privacy" className="text-text-secondary text-sm hover:text-primary transition-colors">Điều khoản & Bảo mật</Link></li>
           </ul>

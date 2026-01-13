@@ -7,6 +7,7 @@ import RegistrationPage from './pages/Registration';
 import NewsPage from './pages/News';
 import TermsPrivacyPage from './pages/TermsPrivacy';
 import AdminPostPage from './pages/AdminPost';
+import DepartmentsPage from './pages/Departments';
 import { ModalProvider } from './components/RegistrationModal';
 
 function ScrollToTop() {
@@ -60,6 +61,7 @@ const App = () => {
             <Route path="/home" element={<HomePage />} />
             <Route path="/registration" element={<RegistrationPage />} />
             <Route path="/terms-privacy" element={<TermsPrivacyPage />} />
+            <Route path="/departments" element={<DepartmentsPage />} />
             <Route path="/admin/post" element={<AdminPostPage />} />
           </Routes>
         </Layout>

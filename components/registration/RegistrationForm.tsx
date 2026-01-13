@@ -132,33 +132,25 @@ export const RegistrationForm: React.FC = () => {
     // Main form
     return (
         <section className="w-full max-w-[1200px] px-4 md:px-6 py-12">
-            <div className="mb-6">
-                <Link
-                    to="/"
-                    className="text-text-secondary hover:text-primary text-sm font-medium flex items-center gap-1 transition-colors w-fit"
-                >
-                    <span className="material-symbols-outlined text-[18px]">arrow_back</span>{' '}
-                    Quay lại trang chủ
-                </Link>
-            </div>
+
 
             <div className="bg-surface rounded-xl border border-surface-border shadow-sm p-4 md:p-6 lg:p-10">
                 <div className="text-center mb-6 md:mb-8 border-b border-surface-border pb-4 md:pb-6">
                     <h1 className="text-2xl md:text-3xl font-bold text-primary mb-2 md:mb-3">
-                        FRC - RECRUITMENT | ĐƠN ĐĂNG KÝ THAM GIA
+                        ĐƠN ĐĂNG KÝ THAM GIA
                     </h1>
                     <p className="text-sm md:text-base text-text-secondary max-w-lg mx-auto">
-                        Chào mừng bạn đến với FPTU Robotics Club. Vui lòng điền đầy đủ thông tin bên dưới để hoàn tất đơn đăng ký tham gia.
+                        Vui lòng điền đầy đủ thông tin bên dưới để hoàn tất đơn đăng ký tham gia.
                     </p>
                 </div>
 
                 <FormProgress currentStep={currentStep} />
 
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                    {/* Step content */}
-                    <div className="transition-opacity duration-300">
+                    {/* Step content with slide animation */}
+                    <div className="overflow-hidden">
                         {currentStep === 1 && (
-                            <div className="animate-in fade-in duration-300">
+                            <div className="animate-in slide-in-from-right-5 fade-in duration-500">
                                 <h2 className="text-xl md:text-2xl font-bold text-center mb-4 md:mb-6 text-gray-900">
                                     PHẦN 1: THÔNG TIN CHUNG
                                 </h2>
@@ -167,7 +159,7 @@ export const RegistrationForm: React.FC = () => {
                         )}
 
                         {currentStep === 2 && (
-                            <div className="animate-in fade-in duration-300">
+                            <div className="animate-in slide-in-from-right-5 fade-in duration-500">
                                 <h2 className="text-xl md:text-2xl font-bold text-center mb-4 md:mb-6 text-gray-900">
                                     PHẦN 2: CHỌN BAN ỨNG TUYỂN
                                 </h2>
@@ -176,7 +168,7 @@ export const RegistrationForm: React.FC = () => {
                         )}
 
                         {currentStep === 3 && (
-                            <div className="animate-in fade-in duration-300">
+                            <div className="animate-in slide-in-from-right-5 fade-in duration-500">
                                 <h2 className="text-xl md:text-2xl font-bold text-center mb-4 md:mb-6 text-gray-900">
                                     PHẦN 3: CÂU HỎI THEO BAN
                                 </h2>
@@ -185,7 +177,7 @@ export const RegistrationForm: React.FC = () => {
                         )}
 
                         {currentStep === 4 && (
-                            <div className="animate-in fade-in duration-300">
+                            <div className="animate-in slide-in-from-right-5 fade-in duration-500">
                                 <h2 className="text-xl md:text-2xl font-bold text-center mb-4 md:mb-6 text-gray-900">
                                     PHẦN 4: CAM KẾT
                                 </h2>

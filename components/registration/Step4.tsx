@@ -76,8 +76,7 @@ export const Step4: React.FC<Step4Props> = ({ form }) => {
 
             <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mt-6">
                 <p className="text-sm text-gray-700">
-                    <strong>Lưu ý:</strong> Sau khi nhấn "Gửi đăng ký", bạn sẽ nhận được mã đăng ký qua email.
-                    Vui lòng lưu lại mã này để tra cứu kết quả sau.
+                    <strong>Lưu ý:</strong> Sau khi nhấn "Gửi đăng ký", bạn sẽ nhận được mã đăng ký.
                 </p>
             </div>
         </div>
