@@ -8,7 +8,7 @@ interface RecruitmentLandingProps {
 
 export const RecruitmentLanding: React.FC<RecruitmentLandingProps> = ({ onScrollToForm }) => {
     // Recruitment dates
-    const applicationDeadline = new Date('2026-01-13T20:00:00');
+    const applicationDeadline = new Date('2026-01-24T00:00:00');
 
     const timeline = [
         {

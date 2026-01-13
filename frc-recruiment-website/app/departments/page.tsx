@@ -2,13 +2,10 @@
 
 import { departments } from "@/lib/departments-data"
 import { DepartmentCard } from "@/components/department-card"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
 
 export default function DepartmentsPage() {
   return (
-    <div 
+    <div
       className="min-h-screen relative overflow-hidden bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: "url('/background.png')",
@@ -18,19 +15,12 @@ export default function DepartmentsPage() {
     >
       {/* Overlay để đảm bảo nội dung dễ đọc (có thể điều chỉnh opacity) */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900/40 via-blue-900/30 to-teal-900/40"></div>
-      
+
       {/* Main Content */}
       <section className="relative z-10 min-h-screen py-8 md:py-12 px-4 md:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="mb-8 md:mb-12">
-            <Link href="/">
-              <Button variant="ghost" className="mb-6 text-white hover:text-white hover:bg-white/20 backdrop-blur-sm">
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Về trang chủ
-              </Button>
-            </Link>
-            
             <div className="text-center mb-8">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 uppercase drop-shadow-lg">
                 Các Ban Trong CLB
