@@ -8,29 +8,29 @@ interface RecruitmentLandingProps {
 
 export const RecruitmentLanding: React.FC<RecruitmentLandingProps> = ({ onScrollToForm }) => {
     // Recruitment dates
-    const applicationDeadline = new Date('2026-01-24T00:00:00');
+    const applicationDeadline = new Date('2026-01-31T00:00:00');
 
     const timeline = [
         {
             title: 'Mở đơn đăng ký',
-            date: '13/01 - 23/01/2026',
+            date: '13/01 - 30/01/2026',
             icon: Calendar,
             status: 'active',
             description: 'Nộp đơn đăng ký online'
         },
         {
             title: 'Vòng phỏng vấn',
-            date: '24/01 - 25/01/2026',
+            date: '02/02 - 03/02/2026',
             icon: Users,
             status: 'upcoming',
             description: 'Phỏng vấn trực tiếp tại phòng lab FRC'
         },
         {
             title: 'Công bố kết quả',
-            date: '27/01/2026',
+            date: '05/02/2026',
             icon: CheckCircle,
             status: 'upcoming',
-            description: 'Thông báo qua email/điện thoại'
+            description: 'Thông báo qua email'
         }
     ];
 
