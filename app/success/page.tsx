@@ -5,8 +5,9 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { CheckCircle2 } from "lucide-react"
 import Link from "next/link"
+import { Suspense } from "react"
 
-export default function SuccessPage() {
+function SuccessContent() {
   const searchParams = useSearchParams()
   const refCode = searchParams.get("ref") || "N/A"
   const clubName = process.env.NEXT_PUBLIC_CLUB_NAME || "FPTU Robotics Club (FRC)"
@@ -37,6 +38,20 @@ export default function SuccessPage() {
         </Link>
       </Card>
     </div>
+  )
+}
+
+export default function SuccessPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center bg-slate-50">
+        <div className="p-8 text-center bg-white rounded-2xl shadow-sm border border-slate-200">
+          Đang tải...
+        </div>
+      </div>
+    }>
+      <SuccessContent />
+    </Suspense>
   )
 }
 
