@@ -1,32 +1,25 @@
-import React from 'react';
+import * as React from "react"
+import * as LabelPrimitive from "@radix-ui/react-label"
+import { cva, type VariantProps } from "class-variance-authority"
 
-interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
-    children: React.ReactNode;
-}
+import { cn } from "@/lib/utils"
 
-export const Label: React.FC<LabelProps> = ({ children, className = '', ...props }) => {
-    // Process children to make asterisks red
-    const processChildren = (child: React.ReactNode): React.ReactNode => {
-        if (typeof child === 'string') {
-            // Replace * with red styled asterisk
-            const parts = child.split(/(\*)/);
-            return parts.map((part, index) =>
-                part === '*' ? (
-                    <span key={index} className="text-red-500 ml-0.5">*</span>
-                ) : (
-                    part
-                )
-            );
-        }
-        return child;
-    };
+const labelVariants = cva(
+  "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+)
 
-    return (
-        <label
-            className={`block text-sm font-bold text-text-main mb-2 ${className}`}
-            {...props}
-        >
-            {React.Children.map(children, processChildren)}
-        </label>
-    );
-};
+const Label = React.forwardRef<
+  React.ElementRef<typeof LabelPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> &
+    VariantProps<typeof labelVariants>
+>(({ className, ...props }, ref) => (
+  <LabelPrimitive.Root
+    ref={ref}
+    className={cn(labelVariants(), className)}
+    {...props}
+  />
+))
+Label.displayName = LabelPrimitive.Root.displayName
+
+export { Label }
+
