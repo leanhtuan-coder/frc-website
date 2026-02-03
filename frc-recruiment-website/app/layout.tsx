@@ -19,7 +19,10 @@ export default function RootLayout({
   return (
     <html lang="vi">
       <body className={inter.className}>
-        <Header />
+        <import { Suspense} from "react" />
+        <Suspense fallback={null}>
+          <Header />
+        </Suspense>
         <main className="pt-16">
           {children}
         </main>
