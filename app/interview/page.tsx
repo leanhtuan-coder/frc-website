@@ -203,9 +203,6 @@ export default function InterviewSelectionPage() {
                         <h2 className="text-xl font-semibold text-slate-800 flex items-center gap-2">
                             <Clock className="w-5 h-5 text-blue-600" />
                             Các khung giờ còn trống
-                            <span className="ml-auto text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 border border-slate-200 text-slate-500">
-                                {process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL ? "URL: OK" : "URL: MISSING"}
-                            </span>
                         </h2>
 
                         {loading ? (
