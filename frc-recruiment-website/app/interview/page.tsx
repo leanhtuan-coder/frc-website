@@ -19,6 +19,8 @@ interface Slot {
     }
 }
 
+export const dynamic = "force-static"
+
 export default function InterviewSelectionPage() {
     const [slots, setSlots] = useState<Slot[]>([])
     const [loading, setLoading] = useState(true)

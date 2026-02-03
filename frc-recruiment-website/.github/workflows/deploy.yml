@@ -43,7 +43,7 @@ jobs:
           SITE_DESCRIPTION: "Đơn đăng ký thành viên FRC"
 
       - name: Diagnostic - List output files
-        run: ls -R ./out
+        run: find ./out -maxdepth 3 -not -path '*/.*'
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
