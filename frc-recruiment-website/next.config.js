@@ -5,8 +5,7 @@ const nextConfig = {
     unoptimized: true,
   },
   trailingSlash: true,
-  // Base path - set to empty string for custom domains at root
-  basePath: '',
+  trailingSlash: true,
 }
 
 module.exports = nextConfig
