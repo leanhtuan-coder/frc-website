@@ -5,8 +5,8 @@ const nextConfig = {
     unoptimized: true,
   },
   trailingSlash: true,
-  // Base path for GitHub Pages
-  basePath: '/frc-website',
+  // Base path - set to empty string for custom domains at root
+  basePath: '',
 }
 
 module.exports = nextConfig
