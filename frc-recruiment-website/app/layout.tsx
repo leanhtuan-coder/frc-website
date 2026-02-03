@@ -4,6 +4,8 @@ import "./globals.css"
 import { Toaster } from "@/components/ui/toaster"
 import { Header } from "@/components/header"
 
+import { Suspense } from "react"
+
 const inter = Inter({ subsets: ["latin", "vietnamese"] })
 
 export const metadata: Metadata = {
@@ -19,7 +21,6 @@ export default function RootLayout({
   return (
     <html lang="vi">
       <body className={inter.className}>
-        <import { Suspense} from "react" />
         <Suspense fallback={null}>
           <Header />
         </Suspense>
