@@ -8,7 +8,7 @@ import Link from "next/link"
 export default function Home() {
   // Set deadline to a future date for testing (adjust as needed)
   const deadline = process.env.NEXT_PUBLIC_REGISTRATION_DEADLINE || "2025-12-31T23:59:59+07:00"
-  
+
   // For development: if deadline is in the past or invalid, set it to 30 days from now
   const deadlineDate = new Date(deadline)
   const now = new Date()
@@ -20,7 +20,7 @@ export default function Home() {
   }
 
   return (
-    <div 
+    <div
       className="min-h-screen relative overflow-hidden bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: "url('/background.png')",
@@ -30,7 +30,7 @@ export default function Home() {
     >
       {/* Overlay để đảm bảo nội dung dễ đọc (có thể điều chỉnh opacity) */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900/40 via-blue-900/30 to-teal-900/40"></div>
-      
+
       {/* Optional: Giữ lại một số abstract shapes nhẹ nếu muốn */}
       {/* Có thể comment out phần này nếu ảnh nền đã đẹp */}
       {/* <div className="absolute inset-0 overflow-hidden">
@@ -46,9 +46,9 @@ export default function Home() {
             <div className="relative z-10">
               {/* Logo CLB - Đặt ở giữa, phía trên title */}
               <div className="flex justify-center mb-1">
-                <img 
-                  src="/logo.png" 
-                  alt="FPTU Robotics Club Logo" 
+                <img
+                  src="/logo.png"
+                  alt="FPTU Robotics Club Logo"
                   className="w-24 h-24 md:w-32 md:h-32 object-contain"
                 />
               </div>
@@ -60,34 +60,13 @@ export default function Home() {
                   <br />
                   MỞ ĐƠN TUYỂN THÀNH VIÊN
                 </h1>
-                
+
                 {/* Welcome Message */}
                 <p className="text-sm md:text-base text-gray-700 font-normal max-w-2xl mx-auto leading-relaxed">
                   Chào mừng bạn đến với sân chơi sáng tạo dành cho sinh viên toàn miền Bắc
                 </p>
               </div>
 
-              {/* Về cuộc thi Section */}
-              <div className="space-y-2 mb-3 md:mb-4">
-                <h2 className="text-lg md:text-xl font-bold text-slate-900">
-                  Về cuộc thi
-                </h2>
-                <p className="text-sm md:text-base text-gray-700 font-normal max-w-2xl mx-auto leading-relaxed">
-                  Với sứ mệnh khai mở tư duy đột phá và bứt phá giới hạn sáng tạo, FPTU Robotics Club mang đến một sân chơi ý nghĩa nơi các thành viên được tự do thể hiện bản sắc cá nhân qua lĩnh vực Robotics và công nghệ.
-                </p>
-              </div>
-
-              {/* Thông tin dự thi Section */}
-              <div className="space-y-2 mb-3 md:mb-4">
-                <h2 className="text-lg md:text-xl font-bold text-slate-900">
-                  Thông tin dự thi
-                </h2>
-                <div className="space-y-1 text-sm md:text-base text-gray-700 font-normal max-w-2xl mx-auto text-left">
-                  <p>• Thí sinh đăng ký theo đội nhóm 2-3 thành viên.</p>
-                  <p>• Tất cả thông tin đăng ký phải trung thực và chính xác.</p>
-                  <p>• Thí sinh cần tuân thủ tuyệt đối các quy định trong Bộ luật của Ban Tổ chức.</p>
-                </div>
-              </div>
 
               {/* Countdown Timer Section */}
               <div className="space-y-3 mb-3 md:mb-4">
@@ -98,7 +77,7 @@ export default function Home() {
                   <Countdown deadline={finalDeadline} />
                 </div>
               </div>
-              
+
               {/* CTA Buttons */}
               <div className="mb-0 space-y-3">
                 <div>

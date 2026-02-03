@@ -42,17 +42,37 @@ export default function InterviewSelectionPage() {
     const fetchSlots = async () => {
         try {
             const scriptUrl = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL || '';
+            console.log("Script URL:", scriptUrl ? "Configured" : "MISSING");
+
             if (!scriptUrl) {
                 console.error('Google Script URL not configured');
+                toast({
+                    title: "Lỗi cấu hình",
+                    description: "Chưa cấu hình URL của Google Script. Vui lòng kiểm tra lại environment variables.",
+                    variant: "destructive"
+                });
                 setSlots([]);
                 return;
             }
 
             const response = await fetch(`${scriptUrl}?action=getSlots`);
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
             const data = await response.json();
+            console.log("Fetched slots:", data.slots?.length || 0);
+
+            if (data.error) {
+                throw new Error(data.error);
+            }
+
             setSlots(data.slots || []);
-        } catch (error) {
+        } catch (error: any) {
             console.error("Fetch slots error:", error);
+            toast({
+                title: "Lỗi tải dữ liệu",
+                description: error.message || "Không thể lấy danh sách lịch phỏng vấn",
+                variant: "destructive"
+            });
             setSlots([]);
         } finally {
             setLoading(false);
