@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Clock, User, Mail, Phone, CheckCircle2, ChevronRight, AlertCircle, Loader2, MapPin } from "lucide-react"
-import axios from "axios"
 import { useToast } from "@/hooks/use-toast"
 import { cn } from "@/lib/utils"
 
