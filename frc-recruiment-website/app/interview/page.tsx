@@ -47,8 +47,9 @@ export default function InterviewSelectionPage() {
                 return;
             }
 
-            const response = await axios.get(`${scriptUrl}?action=getSlots`);
-            setSlots(response.data.slots || []);
+            const response = await fetch(`${scriptUrl}?action=getSlots`);
+            const data = await response.json();
+            setSlots(data.slots || []);
         } catch (error) {
             console.error("Fetch slots error:", error);
             setSlots([]);
