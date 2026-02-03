@@ -1,11 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    serverActions: {
-      bodySizeLimit: '2mb',
-    },
+  output: 'export',
+  images: {
+    unoptimized: true,
   },
+  trailingSlash: true,
+  // Base path for GitHub Pages
+  basePath: '/frc-website',
 }
 
 module.exports = nextConfig
-

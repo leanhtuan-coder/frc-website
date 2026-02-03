@@ -1,0 +1,111 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Submission {
+  id        String   @id @default(cuid())
+  refCode   String   @unique
+  mode      String // "INDIVIDUAL" | "TEAM"
+  createdAt DateTime @default(now())
+
+  // Consent fields
+  consentTruth Boolean
+  consentRules Boolean
+  consentData  Boolean
+
+  // Survey fields (legacy - kept for backward compatibility)
+  surveySource    String?
+  surveySkills    String? // JSON array
+  surveyTimeSlots String? // JSON array
+  notes           String?
+
+  // New fields for Google Form structure
+  preferredDepartment1 String?
+  preferredDepartment2 String?
+  timePerWeek          String?
+  expectations         String? // Text field
+  commitmentLevel      Int? // 1-5
+
+  // Department-specific answers (JSON)
+  techExperience      String?
+  techSkills          String?
+  techProjects        String?
+  techExpectations    String?
+  commExperience      String?
+  commSkills          String?
+  commPortfolio       String?
+  commExpectations    String?
+  financeExperience   String?
+  financeSkills       String?
+  financeExpectations String?
+  eventExperience     String?
+  eventSkills         String?
+  eventExpectations   String?
+
+  // Meta fields
+  metaIpHash String
+  metaUA     String?
+
+  // Relations
+  applicants Applicant[]
+  team       Team?
+}
+
+model Applicant {
+  id           String     @id @default(cuid())
+  submissionId String
+  submission   Submission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  isLeader     Boolean    @default(false)
+
+  fullName       String
+  dob            DateTime
+  email          String
+  phone          String
+  gender         String? // "Nam" | "Nữ" | "Không muốn nêu cụ thể"
+  school         String? // Optional for new form structure
+  major          String? // Optional - now in studentIdMajor
+  studentIdMajor String? // Mã số sinh viên - Chuyên ngành
+  facebook       String?
+  reason         String? // Lý do muốn tham gia (for INDIVIDUAL mode)
+
+  @@index([submissionId])
+  @@index([email])
+}
+
+model Team {
+  id           String     @id @default(cuid())
+  submissionId String     @unique
+  submission   Submission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  teamName     String
+
+  @@index([submissionId])
+}
+
+// New models for interview selection
+model InterviewSlot {
+  id            String   @id @default(cuid())
+  startTime     DateTime
+  endTime       DateTime
+  capacity      Int      @default(5)
+  registrations InterviewRegistration[]
+}
+
+model InterviewRegistration {
+  id        String   @id @default(cuid())
+  slotId    String
+  slot      InterviewSlot @relation(fields: [slotId], references: [id])
+  fullName  String
+  email     String   @unique
+  phone     String
+  createdAt DateTime @default(now())
+
+  @@index([slotId])
+}

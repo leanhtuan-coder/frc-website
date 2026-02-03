@@ -38,15 +38,24 @@ export function MultiStepForm({ onSuccess }: MultiStepFormProps = {}) {
   // Fetch config only once
   useEffect(() => {
     let isMounted = true
-    fetch("/api/config")
+    const scriptUrl = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL
+
+    if (!scriptUrl) {
+      console.error("Google Script URL not configured")
+      setIsLoadingConfig(false)
+      return
+    }
+
+    fetch(`${scriptUrl}?action=getConfig`)
       .then((res) => res.json())
       .then((data) => {
         if (isMounted) {
-          setTeamMode(data.teamMode || false)
+          setTeamMode(data.teamMode === "true" || data.teamMode === true)
           setIsLoadingConfig(false)
         }
       })
-      .catch(() => {
+      .catch((err) => {
+        console.error("Config fetch error:", err)
         if (isMounted) {
           setTeamMode(false)
           setIsLoadingConfig(false)
@@ -194,17 +203,22 @@ export function MultiStepForm({ onSuccess }: MultiStepFormProps = {}) {
 
       let response
       try {
-        console.log("📡 Sending request to /api/register...")
-        response = await fetch("/api/register", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
+        const scriptUrl = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL
+        if (!scriptUrl) throw new Error("Google Script URL not configured")
+
+        // Dùng GET để tránh lỗi CORS khi POST tới Google Apps Script từ browser
+        const params = new URLSearchParams({
+          action: "registerMember",
+          payload: JSON.stringify(data),
+        })
+
+        response = await fetch(`${scriptUrl}?${params.toString()}`, {
+          method: "GET",
+          mode: "cors",
           signal: controller.signal,
         })
         clearTimeout(timeoutId)
-        console.log("📥 Response received:", response.status, response.statusText)
+        console.log("📥 Response received:", response.status)
       } catch (error: any) {
         clearTimeout(timeoutId)
         console.error("❌ Fetch error:", error)

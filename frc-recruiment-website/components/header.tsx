@@ -5,13 +5,14 @@ import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 
 const navItems = [
-    { href: "/", label: "Trang chủ" },
-    { href: "/departments", label: "Mô tả và tiêu chí của các ban" },
-    { href: "/register", label: "Đăng ký" },
+    { href: "/interview", label: "Lịch phỏng vấn" },
 ]
 
 export function Header() {
     const pathname = usePathname()
+
+    // Hide header on interview page for a standalone experience
+    if (pathname === "/interview" || pathname === "/interview/") return null
 
     return (
         <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm">
